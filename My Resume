@@ -48,7 +48,7 @@
 [2025.06-2026.03] 
 
 \begin{itemize}
-  \item \textbf{测试开发：} 分别基于vLLM/vLLM-Ascend推理框架，在A100服务器异构集群与昇腾910B服务器异构集群上，采用PD分离架构与大型EP并行策略，跨节点部署DeepSeek-67B和Qwen-7B等模型。基于vllm-omni推理框架，在A100服务器上部署Qwen2.5-Image-Edit等模型。
+  \item \textbf{测试开发：} 分别基于vLLM/vLLM-Ascend推理框架，在A100服务器异构集群与昇腾910B服务器异构集群上，采用PD分离架构与大型EP并行策略，跨节点部署DeepSeek-67B和Qwen-7B等模型。基于vllm-omni推理框架，在A100服务器上部署Qwen2.5-Image-Edit等模型。基于火焰图对vllm-omni框架部署的Qwen3-Image-2511进行算子优化，优化MHA算子，实现每个算子3ms的性能优化。
 
   \item \textbf{开源贡献：} 参与\textbf{Star数量3k+}的vllm-omni开源项目的贡献，该开源项目致力于扩展 vLLM 的能力，使其支持多模态大模型（Multimodal LLMs, MLLMs）的高吞吐、低延迟推理。完成并合入十余个PR 包括实现Stable diffusion 3.5、Z-Image、Qwen-Image-Edit-2509等diffusion模型的TP、CFG-Parallel、Cache-DiT等加速算法，支持Qwen3-Omni-Instruct模型的vllm-omni线上部署的跨模态输出特性，编写offline benchmark的多模态评测脚本，独立完成了多个Bugfix工作。
 \end{itemize}
@@ -62,25 +62,14 @@
     \item 背景：针对AI图像生成场景中，Stable Diffusion模型难以精准剔除文本提示词中特定概念的问题，为应对法规要求（如 GDPR）和伦理准则，亟需技术手段能够从预训练模型中移除特定语义概念，同时保持模型在其他内容上的生成能力。这一任务被称为“概念擦除”。
     \item 方法：提出了一种轻量级的语义路由框架 MapRoute，用于在扩散模型中进行精确的概念擦除，支持单概念与多概念擦除任务。设计了基于双阶段训练的 Mapper 模块，实现目标概念的精准映射与非目标内容的无损保留。
     \item 设计动态路由机制，根据输入语义激活 Top-K 相关 Mapper，有效缓解多概念擦除中的参数冲突与灾难性遗忘问题。采用两阶段训练策略（自监督保留 + 目标-替代映射），在擦除目标概念的同时保持非目标内容生成质量。在 CIFAR-10、Celebrity 和 Artistic Style 等多个任务上实现了 SOTA 性能，尤其在多概念擦除任务中展现出优异的语义一致性与生成保真度。
-\end{itemize}
-
-\ResumeItem[BIThesis 北京理工大学毕设模板集合(开源项目)]
-{\ResumeUrl{https://github.com/BITNP/BIThesis}{\textbf{BIThesis} 北京理工大学毕设 \LaTeX 模板集合}}
-[主要维护者（开源项目）]
-[2020.04 — 今]
-
-\begin{itemize}
-  \item 根据相关排版要求，\textbf{利用 LaTeX3 (expl3) 设计了同时符合各个学位要求且支持灵活配置的宏包及多套模板}。
-  \item 需求开发和问题修复采用标准工作流，引入了回归测试与基于 GitHub Actions 的测试与持续集成。
-  \item 负责了什么什么；完成了怎样的结果。
+    \item 项目已开源在\ResumeUrl{https://github.com/GG-li/MapRoute}{https://github.com/GG-li/MapRoute}
 \end{itemize}
 
 \section{个人总结}
 
 \begin{itemize}
   \item 本人乐观开朗、在校成绩优异、自驱能力强，具有良好的沟通能力和团队合作精神。
-  \item 可以使用英语进行工作交流（六级成绩 XXX），平时有阅读英文书籍和口语练习的习惯。
-  \item 有六年 Linux 使用经验，较为丰富的软件开发经验、开源项目贡献和维护经验。善于技术写作，持续关注互联网技术发展。
+  \item 有丰富的 Linux 使用经验，较为丰富的软件开发经验、开源项目贡献和维护经验。善于技术写作，持续关注互联网技术发展。
 \end{itemize}
 
 
